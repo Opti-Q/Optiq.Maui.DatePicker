@@ -1,0 +1,39 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.7.34003.232
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Optiq.DatePicker", "src\Optiq.DatePicker\Optiq.DatePicker.csproj", "{6343E482-9704-423C-AD07-F97700268111}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Optiq.DatePicker.Sample", "src\Optiq.DatePicker.Sample\Optiq.DatePicker.Sample.csproj", "{7B1F35A8-F01A-494A-A6A5-0B60D5D8DFEC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Optiq.DatePicker.Tests", "Tests\Optiq.DatePicker.Tests\Optiq.DatePicker.Tests.csproj", "{AFD6E92D-027C-45D5-872F-FA444E2E05DE}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{6343E482-9704-423C-AD07-F97700268111}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6343E482-9704-423C-AD07-F97700268111}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6343E482-9704-423C-AD07-F97700268111}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6343E482-9704-423C-AD07-F97700268111}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7B1F35A8-F01A-494A-A6A5-0B60D5D8DFEC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7B1F35A8-F01A-494A-A6A5-0B60D5D8DFEC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7B1F35A8-F01A-494A-A6A5-0B60D5D8DFEC}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{7B1F35A8-F01A-494A-A6A5-0B60D5D8DFEC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7B1F35A8-F01A-494A-A6A5-0B60D5D8DFEC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7B1F35A8-F01A-494A-A6A5-0B60D5D8DFEC}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{AFD6E92D-027C-45D5-872F-FA444E2E05DE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AFD6E92D-027C-45D5-872F-FA444E2E05DE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AFD6E92D-027C-45D5-872F-FA444E2E05DE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AFD6E92D-027C-45D5-872F-FA444E2E05DE}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {327E47B6-48A2-4ED6-9E7B-04B7CB062945}
+	EndGlobalSection
+EndGlobal
