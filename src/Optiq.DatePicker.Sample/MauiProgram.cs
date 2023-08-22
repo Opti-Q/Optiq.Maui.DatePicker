@@ -1,5 +1,5 @@
 ﻿using Optiq.DatePicker.Handlers;
-using IDatePicker = Optiq.DatePicker.Core.IDatePicker;
+using IDatePicker = Optiq.DatePicker.Core.Interfaces.IDatePicker;
 
 namespace Optiq.DatePicker.Sample
 {

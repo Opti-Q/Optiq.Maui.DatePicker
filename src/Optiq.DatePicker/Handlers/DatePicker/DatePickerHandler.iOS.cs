@@ -1,9 +1,8 @@
 ﻿using Microsoft.Maui.Handlers;
 using Microsoft.Maui.Platform;
-using Optiq.DatePicker.Handlers.DatePicker;
 using Optiq.DatePicker.Platforms;
 using UIKit;
-using IDatePicker = Optiq.DatePicker.Core.IDatePicker;
+using IDatePicker = Optiq.DatePicker.Core.Interfaces.IDatePicker;
 
 namespace Optiq.DatePicker.Handlers.DatePicker;
 

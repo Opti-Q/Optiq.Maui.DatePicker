@@ -15,7 +15,7 @@
                 Style="{DynamicResource Headline}"/>
 
             <datePicker:DatePicker Date="{x:Null}"></datePicker:DatePicker>
-            <datePicker:DatePicker x:Name="dp1" Date="{x:Binding Path=DateVal}"></datePicker:DatePicker>
+            <datePicker:DatePicker x:Name="dp1" Date="{x:Binding Path=DateVal}" CharacterSpacing="10" TextColor="Orange"></datePicker:DatePicker>
             <datePicker:DatePicker x:Name="dp2" Date="{x:Null}"></datePicker:DatePicker>
 
             <DatePicker x:Name="dMaui" Date="{x:Null}"></DatePicker>

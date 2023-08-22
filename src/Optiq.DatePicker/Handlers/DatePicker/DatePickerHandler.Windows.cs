@@ -1,8 +1,8 @@
 ﻿using Microsoft.Maui.Handlers;
 using Microsoft.Maui.Platform;
 using Microsoft.UI.Xaml.Controls;
-using IDatePicker = Optiq.DatePicker.Core.IDatePicker;
-using IDatePickerHandler = Optiq.DatePicker.Handlers.DatePicker.IDatePickerHandler;
+using Optiq.DatePicker.Platforms;
+using IDatePicker = Optiq.DatePicker.Core.Interfaces.IDatePicker;
 
 namespace Optiq.DatePicker.Handlers.DatePicker;
 
@@ -22,22 +22,22 @@ public partial class DatePickerHandler : ViewHandler<IDatePicker, CalendarDatePi
 
     public static partial void MapFormat(IDatePickerHandler handler, IDatePicker datePicker)
     {
-        //handler.PlatformView.UpdateDate(datePicker);
+        handler.PlatformView.UpdateDate(datePicker);
     }
 
     public static partial void MapDate(IDatePickerHandler handler, IDatePicker datePicker)
     {
-        //handler.PlatformView.UpdateDate(datePicker);
+        handler.PlatformView.UpdateDate(datePicker);
     }
 
     public static partial void MapMinimumDate(IDatePickerHandler handler, IDatePicker datePicker)
     {
-        //handler.PlatformView.UpdateMinimumDate(datePicker);
+        handler.PlatformView.UpdateMinimumDate(datePicker);
     }
 
     public static partial void MapMaximumDate(IDatePickerHandler handler, IDatePicker datePicker)
     {
-        //handler.PlatformView.UpdateMaximumDate(datePicker);
+        handler.PlatformView.UpdateMaximumDate(datePicker);
     }
 
     public static partial void MapCharacterSpacing(IDatePickerHandler handler, IDatePicker datePicker)

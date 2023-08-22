@@ -1,4 +1,6 @@
-﻿namespace Optiq.DatePicker.Sample
+﻿using Font = Microsoft.Maui.Font;
+
+namespace Optiq.DatePicker.Sample
 {
     public partial class MainPage : ContentPage
     {
@@ -8,7 +10,10 @@
         {
             InitializeComponent();
             dp1.Date = DateVal;
+            dp1.Font = Font.OfSize("Bahnschrift", 40);
+
             dp2.Date = DateVal2;
+            dp2.Font = Font.OfSize("Microsoft Sans Serif", 20);
         } 
 
 

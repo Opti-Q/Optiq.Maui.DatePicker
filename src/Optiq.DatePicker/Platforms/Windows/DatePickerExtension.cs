@@ -3,7 +3,7 @@ using Microsoft.Maui.Platform;
 using Microsoft.UI.Xaml.Controls;
 using Optiq.DatePicker.Platforms.Windows;
 using WBrush = Microsoft.UI.Xaml.Media.Brush;
-using IDatePicker = Optiq.DatePicker.Core.IDatePicker;
+using IDatePicker = Optiq.DatePicker.Core.Interfaces.IDatePicker;
 
 
 namespace Optiq.DatePicker.Platforms;

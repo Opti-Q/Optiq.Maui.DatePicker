@@ -1,7 +1,8 @@
 ﻿#if WINDOWS || ANDROID || IOS
+using Optiq.DatePicker.Core.Interfaces;
 using Optiq.DatePicker.Handlers.DatePicker;
 #endif
-using IDatePicker = Optiq.DatePicker.Core.IDatePicker;
+using IDatePicker = Optiq.DatePicker.Core.Interfaces.IDatePicker;
 
 namespace Optiq.DatePicker;
 
