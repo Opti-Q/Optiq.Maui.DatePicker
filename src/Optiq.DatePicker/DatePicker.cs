@@ -153,7 +153,7 @@ public class DatePicker : View, IElementConfiguration<DatePicker>, IDatePicker
         EventHandler<DateChangedEventArgs> selected = datePicker.DateSelected;
 
         if (selected != null)
-            selected(datePicker, new DateChangedEventArgs((DateTime)oldValue, (DateTime)newValue));
+            selected(datePicker, new DateChangedEventArgs((DateTime?)oldValue, (DateTime)newValue));
     }
 
     static bool ValidateMaximumDate(BindableObject bindable, object value)

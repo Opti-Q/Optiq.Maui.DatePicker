@@ -24,10 +24,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="DatePicker\" />
-  </ItemGroup>
-
-  <ItemGroup>
     <ProjectReference Include="..\..\src\Optiq.DatePicker\Optiq.DatePicker.csproj" />
   </ItemGroup>
 
