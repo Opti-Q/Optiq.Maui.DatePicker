@@ -2,9 +2,9 @@
 using Microsoft.Maui.Platform;
 using Microsoft.UI.Xaml.Controls;
 using IDatePicker = Optiq.DatePicker.Core.IDatePicker;
-using IDatePickerHandler = Optiq.DatePicker.Handlers.IDatePickerHandler;
+using IDatePickerHandler = Optiq.DatePicker.Handlers.DatePicker.IDatePickerHandler;
 
-namespace Optiq.DatePicker.Handlers;
+namespace Optiq.DatePicker.Handlers.DatePicker;
 
 public partial class DatePickerHandler : ViewHandler<IDatePicker, CalendarDatePicker>
 {

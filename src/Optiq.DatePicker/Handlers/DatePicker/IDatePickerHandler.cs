@@ -9,7 +9,7 @@ using PlatformView = System.Object;
 #endif
 using IDatePicker = Optiq.DatePicker.Core.IDatePicker;
 
-namespace Optiq.DatePicker.Handlers;
+namespace Optiq.DatePicker.Handlers.DatePicker;
 
 public partial interface IDatePickerHandler : IViewHandler
 {

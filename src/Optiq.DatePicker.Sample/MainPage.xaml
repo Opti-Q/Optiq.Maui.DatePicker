@@ -14,7 +14,13 @@
                 Text="Null Date"
                 Style="{DynamicResource Headline}"/>
 
-            <datePicker:DatePicker></datePicker:DatePicker>
+            <datePicker:DatePicker Date="{x:Null}"></datePicker:DatePicker>
+            <datePicker:DatePicker x:Name="dp1" Date="{x:Binding Path=DateVal}"></datePicker:DatePicker>
+            <datePicker:DatePicker x:Name="dp2" Date="{x:Null}"></datePicker:DatePicker>
+
+            <DatePicker x:Name="dMaui" Date="{x:Null}"></DatePicker>
+
+
 
         </VerticalStackLayout>
     </ScrollView>

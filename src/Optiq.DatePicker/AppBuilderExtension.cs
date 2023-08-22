@@ -1,5 +1,5 @@
 ﻿#if WINDOWS || ANDROID || IOS
-using Optiq.DatePicker.Handlers;
+using Optiq.DatePicker.Handlers.DatePicker;
 #endif
 using IDatePicker = Optiq.DatePicker.Core.IDatePicker;
 

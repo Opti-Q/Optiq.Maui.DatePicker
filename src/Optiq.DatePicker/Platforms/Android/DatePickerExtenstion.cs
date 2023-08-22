@@ -1,5 +1,7 @@
 ﻿using Android.App;
 using Android.Content.Res;
+using Android.Runtime;
+using Java.Interop;
 using Microsoft.Maui.Platform;
 using IDatePicker = Optiq.DatePicker.Core.IDatePicker;
 
@@ -19,10 +21,12 @@ public static class DatePickerExtenstion
 
     public static void UpdateTextColor(this MauiDatePicker platformDatePicker, IDatePicker datePicker)
     {
-        Microsoft.Maui.IDatePicker picker = datePicker as Microsoft.Maui.IDatePicker ;
+        var textColor = datePicker.TextColor;
 
-        if(picker != null)
-            platformDatePicker.UpdateTextColor(picker);
+        if (textColor != null)
+        {
+                platformDatePicker.SetTextColor(textColor.ToPlatform());
+        }
 
     }
 

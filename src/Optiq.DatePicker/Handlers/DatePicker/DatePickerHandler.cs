@@ -10,8 +10,9 @@ using PlatformView = System.Object;
 #endif
 using IDatePicker = Optiq.DatePicker.Core.IDatePicker;
 using Microsoft.Maui.Handlers;
+using Optiq.DatePicker.Handlers.DatePicker;
 
-namespace Optiq.DatePicker.Handlers;
+namespace Optiq.DatePicker.Handlers.DatePicker;
 
 public partial class DatePickerHandler : IDatePickerHandler
 {

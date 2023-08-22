@@ -1,10 +1,11 @@
 ﻿using Android.App;
 using Microsoft.Maui.Handlers;
 using Microsoft.Maui.Platform;
+using Optiq.DatePicker.Handlers.DatePicker;
 using Optiq.DatePicker.Platforms;
 using IDatePicker = Optiq.DatePicker.Core.IDatePicker;
 
-namespace Optiq.DatePicker.Handlers;
+namespace Optiq.DatePicker.Handlers.DatePicker;
 
 public partial class DatePickerHandler : ViewHandler<IDatePicker, MauiDatePicker>
 {
@@ -122,8 +123,8 @@ public partial class DatePickerHandler : ViewHandler<IDatePicker, MauiDatePicker
 
     public static partial void MapTextColor(IDatePickerHandler handler, IDatePicker datePicker)
     {
-        //if (handler is DatePickerHandler platformHandler)
-        //    handler.PlatformView?.UpdateTextColor(datePicker);
+        if (handler is DatePickerHandler platformHandler)
+            handler.PlatformView?.UpdateTextColor(datePicker);
     }
 
     void ShowPickerDialog()
