@@ -1,8 +1,8 @@
-﻿namespace Optiq.DatePicker.Platforms.Windows;
+﻿namespace Optiq.DatePicker.Platforms;
 
-internal static class ResourceDictionaryExtension
+public static class ResourceDictionaryExtension
 {
-    internal static void RemoveKeys(this Microsoft.UI.Xaml.ResourceDictionary resources, IEnumerable<string> keys)
+    public static void RemoveKeys(this Microsoft.UI.Xaml.ResourceDictionary resources, IEnumerable<string> keys)
     {
         foreach (string key in keys)
         {
@@ -10,11 +10,12 @@ internal static class ResourceDictionaryExtension
         }
     }
 
-    internal static void SetValueForAllKey(this Microsoft.UI.Xaml.ResourceDictionary resources, IEnumerable<string> keys, object? value)
+    public static void SetValueForAllKey(this Microsoft.UI.Xaml.ResourceDictionary resources, IEnumerable<string> keys, object? value)
     {
         foreach (string key in keys)
         {
             resources[key] = value;
         }
     }
+
 }

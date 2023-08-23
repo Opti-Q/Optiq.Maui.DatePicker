@@ -10,7 +10,7 @@ namespace Optiq.DatePicker.Sample
             var builder = MauiApp.CreateBuilder();
             builder
                 .UseMauiApp<App>()
-                .UseMauiOptiqDatePicker()
+                .UseMauiOptiqDateAndTimePicker()
                 .ConfigureFonts(fonts =>
                 {
                     fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");

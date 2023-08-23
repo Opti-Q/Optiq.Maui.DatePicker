@@ -27,7 +27,6 @@ public class DatePickerUnitTests
         {
             Assert.Null(picker.Date);
         }
-
     }
 
     [Fact]
