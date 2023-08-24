@@ -1,0 +1,31 @@
+name: Test
+
+on:
+  push:
+    branches:
+      - main
+      - 'feature/*'
+
+jobs:
+  Build:
+    runs-on: [windows-latest]
+
+    env:
+      SOLUTION: 'Optiq.Maui.DatePicker'
+
+    steps:
+    - uses: actions/checkout@v2
+      with:
+        dotnet-version: 6.0.x
+
+    - name: Setup MSBuild
+      uses: microsoft/setup-msbuild@v1
+
+    - name: Setup NuGet
+      uses: NuGet/setup-nuget@v1.0.5
+
+    - name: Restore NuGet packages
+      run: nuget restore $SOLUTION
+      
+    - name: Execute unit tests
+      run: dotnet test .\Tests\Optiq.DatePicker.Tests\ --no-restore
