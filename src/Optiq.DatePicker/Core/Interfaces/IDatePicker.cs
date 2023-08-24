@@ -1,4 +1,4 @@
-﻿namespace Optiq.DatePicker.Core;
+﻿namespace Optiq.DatePicker.Core.Interfaces;
 
 public interface IDatePicker : IView, ITextStyle
 {

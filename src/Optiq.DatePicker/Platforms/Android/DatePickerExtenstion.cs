@@ -1,37 +1,38 @@
 ﻿using Android.App;
-using Android.Content.Res;
 using Microsoft.Maui.Platform;
-using IDatePicker = Optiq.DatePicker.Core.IDatePicker;
+using IDatePicker = Optiq.DatePicker.Core.Interfaces.IDatePicker;
 
 namespace Optiq.DatePicker.Platforms;
 
 public static class DatePickerExtenstion
 {
-    public static void UpdateFormat(this MauiDatePicker platformDatePicker, IDatePicker datePicker)
+    public static void UpdateFormat(this AndroidDatePicker platformDatePicker, IDatePicker datePicker)
     {
         platformDatePicker.SetText(datePicker);
     }
 
-    public static void UpdateDate(this MauiDatePicker platformDatePicker, IDatePicker datePicker)
+    public static void UpdateDate(this AndroidDatePicker platformDatePicker, IDatePicker datePicker)
     {
         platformDatePicker.SetText(datePicker);
     }
 
-    public static void UpdateTextColor(this MauiDatePicker platformDatePicker, IDatePicker datePicker)
+    public static void UpdateTextColor(this AndroidDatePicker platformDatePicker, IDatePicker datePicker)
     {
-        Microsoft.Maui.IDatePicker picker = datePicker as Microsoft.Maui.IDatePicker ;
+        var textColor = datePicker.TextColor;
 
-        if(picker != null)
-            platformDatePicker.UpdateTextColor(picker);
+        if (textColor != null)
+        {
+                platformDatePicker.SetTextColor(textColor.ToPlatform());
+        }
 
     }
 
-    public static void UpdateMinimumDate(this MauiDatePicker platformDatePicker, IDatePicker datePicker)
+    public static void UpdateMinimumDate(this AndroidDatePicker platformDatePicker, IDatePicker datePicker)
     {
         platformDatePicker.UpdateMinimumDate(datePicker, null);
     }
 
-    public static void UpdateMinimumDate(this MauiDatePicker platformDatePicker, IDatePicker datePicker, DatePickerDialog? datePickerDialog)
+    public static void UpdateMinimumDate(this AndroidDatePicker platformDatePicker, IDatePicker datePicker, DatePickerDialog? datePickerDialog)
     {
         if (datePickerDialog != null)
         {
@@ -39,19 +40,19 @@ public static class DatePickerExtenstion
         }
     }
 
-    public static void UpdateMaximumDate(this MauiDatePicker platformDatePicker, IDatePicker datePicker)
+    public static void UpdateMaximumDate(this AndroidDatePicker platformDatePicker, IDatePicker datePicker)
     {
         platformDatePicker.UpdateMinimumDate(datePicker, null);
     }
 
-    public static void UpdateMaximumDate(this MauiDatePicker platformDatePicker, IDatePicker datePicker, DatePickerDialog? datePickerDialog)
+    public static void UpdateMaximumDate(this AndroidDatePicker platformDatePicker, IDatePicker datePicker, DatePickerDialog? datePickerDialog)
     {
         if (datePickerDialog != null)
         {
             datePickerDialog.DatePicker.MaxDate = (long)datePicker.MaximumDate.ToUniversalTime().Subtract(DateTime.MinValue.AddYears(1969)).TotalMilliseconds;
         }
     }
-    internal static void SetText(this MauiDatePicker platformDatePicker, IDatePicker datePicker)
+    internal static void SetText(this AndroidDatePicker platformDatePicker, IDatePicker datePicker)
     {
         platformDatePicker.Text = datePicker.Date?.ToString(datePicker.Format);
     }

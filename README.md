@@ -1,8 +1,8 @@
-# Optiq.Maui.DatePicker
+# Optiq.Maui.Tools
 
 ## How to use
 
-Add "UserMauiOptiqDataPicker" in the MauiProgramm
+Add "UserMauiOptiqDateAndTimePicker" in the MauiProgramm
 
 
     public static class MauiProgram
@@ -12,7 +12,7 @@ Add "UserMauiOptiqDataPicker" in the MauiProgramm
             var builder = MauiApp.CreateBuilder();
             builder
                 .UseMauiApp<App>()
-                .UseMauiOptiqDatePicker()
+                .UseMauiOptiqDateAndTimePicker()
                 .ConfigureFonts(fonts =>
                 {
                     fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
@@ -21,7 +21,12 @@ Add "UserMauiOptiqDataPicker" in the MauiProgramm
 
             return builder.Build();
         }
+    }
 
 Now add the element.
 
-    <datePicker:DatePicker Date="{x:Null}"></datePicker:DatePicker>
+ xmlns:name="clr-namespace:Optiq.DatePicker;assembly=Optiq.DatePicker"
+
+    <name:DatePicker></name:DatePicker>
+    <name:TimePicker></name:TimePicker>
+

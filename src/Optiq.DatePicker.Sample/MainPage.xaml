@@ -11,10 +11,22 @@
             VerticalOptions="Center">
 
             <Label
-                Text="Null Date"
+                Text="Null Date Picker"
                 Style="{DynamicResource Headline}"/>
 
-            <datePicker:DatePicker></datePicker:DatePicker>
+            <datePicker:DatePicker Date="{x:Null}"></datePicker:DatePicker>
+            <datePicker:DatePicker x:Name="dp1" Date="{x:Binding Path=DateVal}" CharacterSpacing="10" TextColor="Orange"></datePicker:DatePicker>
+            <datePicker:DatePicker x:Name="dp2" Date="{x:Null}"></datePicker:DatePicker>
+
+            <DatePicker></DatePicker>
+
+            <Label
+                Text="Null Time Picker"
+                Style="{DynamicResource Headline}"/>
+
+            <datePicker:TimePicker Time="{x:Null}" TextColor="BlueViolet"></datePicker:TimePicker>
+
+            <datePicker:TimePicker x:Name="tp1" TextColor="BlueViolet"></datePicker:TimePicker>
 
         </VerticalStackLayout>
     </ScrollView>

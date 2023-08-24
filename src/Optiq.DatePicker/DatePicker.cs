@@ -1,7 +1,9 @@
 ﻿using System;
 using Microsoft.Maui.Controls.Internals;
 using Font = Microsoft.Maui.Font;
-using IDatePicker = Optiq.DatePicker.Core.IDatePicker;
+using IDatePicker = Optiq.DatePicker.Core.Interfaces.IDatePicker;
+using Microsoft.Maui.Graphics.Text;
+using Optiq.DatePicker.Core.Interfaces;
 
 #if IOS
 using CurrentPlatform = Microsoft.Maui.Controls.PlatformConfiguration.iOS;
@@ -37,6 +39,19 @@ public class DatePicker : View, IElementConfiguration<DatePicker>, IDatePicker
         typeof(DateTime), typeof(DatePicker), new DateTime(2100, 12, 31),
         validateValue: ValidateMaximumDate, coerceValue: CoerceMaximumDate);
 
+    public static readonly BindableProperty FontProperty = BindableProperty.Create(nameof(Font), typeof(Font),
+        typeof(DatePicker),
+        Font.Default);    
+    
+    public static readonly BindableProperty CharacterSpacingProperty = BindableProperty.Create(nameof(CharacterSpacing), typeof(double),
+        typeof(DatePicker),
+        0.0d);
+
+    public static readonly BindableProperty TextColorProperty = BindableProperty.Create(nameof(TextColor), typeof(Color),
+        typeof(DatePicker),
+        Color.FromArgb("#000000"));
+
+
     readonly Lazy<PlatformConfigurationRegistry<DatePicker>> _platformConfigurationRegistry;
 
     public DatePicker()
@@ -69,6 +84,25 @@ public class DatePicker : View, IElementConfiguration<DatePicker>, IDatePicker
     {
         get { return (DateTime)GetValue(MinimumDateProperty); }
         set { SetValue(MinimumDateProperty, value); }
+    }
+
+
+    public Color TextColor
+    {
+        get { return (Color)GetValue(TextColorProperty); }
+        set { SetValue(TextColorProperty, value); }
+    }
+
+    public Font Font
+    {
+        get { return (Font)GetValue(FontProperty); }
+        set { SetValue(FontProperty, value); }
+    }
+
+    public double CharacterSpacing
+    {
+        get { return (double)GetValue(CharacterSpacingProperty); }
+        set { SetValue(CharacterSpacingProperty, value); }
     }
 
     public virtual string UpdateFormsText(string source, TextTransform textTransform)
@@ -119,7 +153,7 @@ public class DatePicker : View, IElementConfiguration<DatePicker>, IDatePicker
         EventHandler<DateChangedEventArgs> selected = datePicker.DateSelected;
 
         if (selected != null)
-            selected(datePicker, new DateChangedEventArgs((DateTime)oldValue, (DateTime)newValue));
+            selected(datePicker, new DateChangedEventArgs((DateTime?)oldValue, (DateTime)newValue));
     }
 
     static bool ValidateMaximumDate(BindableObject bindable, object value)
@@ -137,10 +171,6 @@ public class DatePicker : View, IElementConfiguration<DatePicker>, IDatePicker
     {
         return _platformConfigurationRegistry.Value.On<T>();
     }
-
-    public Color TextColor => Color.FromArgb("#98fc03");
-    public Font Font => Font.Default;
-    public double CharacterSpacing => Double.Epsilon;
 
 }
 

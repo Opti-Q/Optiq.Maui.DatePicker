@@ -1,5 +1,5 @@
 ﻿using Optiq.DatePicker.Handlers;
-using IDatePicker = Optiq.DatePicker.Core.IDatePicker;
+using IDatePicker = Optiq.DatePicker.Core.Interfaces.IDatePicker;
 
 namespace Optiq.DatePicker.Sample
 {
@@ -10,7 +10,7 @@ namespace Optiq.DatePicker.Sample
             var builder = MauiApp.CreateBuilder();
             builder
                 .UseMauiApp<App>()
-                .UseMauiOptiqDatePicker()
+                .UseMauiOptiqDateAndTimePicker()
                 .ConfigureFonts(fonts =>
                 {
                     fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");

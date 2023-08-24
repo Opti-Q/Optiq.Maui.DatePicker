@@ -1,17 +1,18 @@
 ﻿#if IOS && !MACCATALYST
 using PlatformView = Optiq.DatePicker.Platforms.IOSDatePicker;
 #elif ANDROID
-using PlatformView = Microsoft.Maui.Platform.MauiDatePicker;
+using PlatformView = Optiq.DatePicker.Platforms.AndroidDatePicker;
 #elif WINDOWS
 using IPropertyMapper = Microsoft.Maui.IPropertyMapper;
 using PlatformView = Microsoft.UI.Xaml.Controls.CalendarDatePicker;
 #elif (NETSTANDARD || !PLATFORM) || (NET6_0_OR_GREATER && !IOS && !ANDROID && !TIZEN)
 using PlatformView = System.Object;
 #endif
-using IDatePicker = Optiq.DatePicker.Core.IDatePicker;
+using IDatePicker = Optiq.DatePicker.Core.Interfaces.IDatePicker;
 using Microsoft.Maui.Handlers;
+using Optiq.DatePicker.Handlers.DatePicker;
 
-namespace Optiq.DatePicker.Handlers;
+namespace Optiq.DatePicker.Handlers.DatePicker;
 
 public partial class DatePickerHandler : IDatePickerHandler
 {
