@@ -18,6 +18,8 @@
             <datePicker:DatePicker x:Name="dp1" Date="{x:Binding Path=DateVal}" CharacterSpacing="10" TextColor="Orange"></datePicker:DatePicker>
             <datePicker:DatePicker x:Name="dp2" Date="{x:Null}"></datePicker:DatePicker>
 
+            <DatePicker></DatePicker>
+
             <Label
                 Text="Null Time Picker"
                 Style="{DynamicResource Headline}"/>

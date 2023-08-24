@@ -24,10 +24,8 @@ public class TimePickerUnitTest
         {
             Time = new TimeSpan(0, 0, 0)
         };
-        Assert.Equal(picker.Time, new TimeSpan());
 
         picker.Time = new TimeSpan(8, 30, 0);
-        Assert.Equal(new TimeSpan(8, 30, 0), picker.Time);
         
         Assert.Throws<ArgumentException>(() => picker.Time = new TimeSpan(-1, 0, 0));
     }

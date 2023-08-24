@@ -6,13 +6,13 @@ using IDatePicker = Optiq.DatePicker.Core.Interfaces.IDatePicker;
 
 namespace Optiq.DatePicker.Handlers.DatePicker;
 
-public partial class DatePickerHandler : ViewHandler<IDatePicker, MauiDatePicker>
+public partial class DatePickerHandler : ViewHandler<IDatePicker, AndroidDatePicker>
 {
     DatePickerDialog? _dialog;
 
-    protected override MauiDatePicker CreatePlatformView()
+    protected override AndroidDatePicker CreatePlatformView()
     {
-        var datePicker = new MauiDatePicker(Context)
+        var datePicker = new AndroidDatePicker(Context)
         {
             ShowPicker = ShowPickerDialog,
             HidePicker = HidePickerDialog
@@ -31,7 +31,7 @@ public partial class DatePickerHandler : ViewHandler<IDatePicker, MauiDatePicker
         get { return _dialog; }
     }
 
-    protected override void ConnectHandler(MauiDatePicker platformView)
+    protected override void ConnectHandler(AndroidDatePicker platformView)
     {
         base.ConnectHandler(platformView);
         platformView.ViewAttachedToWindow += OnViewAttachedToWindow;
@@ -52,7 +52,7 @@ public partial class DatePickerHandler : ViewHandler<IDatePicker, MauiDatePicker
         DeviceDisplay.MainDisplayInfoChanged += OnMainDisplayInfoChanged;
     }
 
-    protected override void DisconnectHandler(MauiDatePicker platformView)
+    protected override void DisconnectHandler(AndroidDatePicker platformView)
     {
         if (_dialog != null)
         {
@@ -93,7 +93,7 @@ public partial class DatePickerHandler : ViewHandler<IDatePicker, MauiDatePicker
 
     public static partial void MapDate(IDatePickerHandler handler, IDatePicker datePicker)
     {
-        handler.PlatformView?.UpdateFormat(datePicker);
+        handler.PlatformView?.UpdateDate(datePicker);
     }
 
     public static partial void MapMinimumDate(IDatePickerHandler handler, IDatePicker datePicker)
@@ -128,6 +128,7 @@ public partial class DatePickerHandler : ViewHandler<IDatePicker, MauiDatePicker
 
     void ShowPickerDialog()
     {
+        var dateNow = DateTime.UtcNow;
         if (VirtualView == null)
             return;
 
@@ -138,23 +139,21 @@ public partial class DatePickerHandler : ViewHandler<IDatePicker, MauiDatePicker
         if (date != null)
             ShowPickerDialog(date.Value.Year, date.Value.Month, date.Value.Day);
         else
-            ShowPickerDialog(0, 0, 0);
+            ShowPickerDialog(dateNow.Year, dateNow.Month, dateNow.Day);
     }
 
     void ShowPickerDialog(int year, int month, int day)
     {
         if (_dialog == null)
             _dialog = CreateDatePickerDialog(year, month, day);
-        else
-        {
-            EventHandler? setDateLater = null;
-            setDateLater = (sender, e) =>
+        
+        EventHandler? setDateLater = null;
+        setDateLater = (sender, e) =>
             {
-                _dialog!.UpdateDate(year, month, day);
+                _dialog!.UpdateDate(year, month-1, day);
                 _dialog.ShowEvent -= setDateLater;
             };
-            _dialog.ShowEvent += setDateLater;
-        }
+        _dialog.ShowEvent += setDateLater;
 
         _dialog.Show();
     }

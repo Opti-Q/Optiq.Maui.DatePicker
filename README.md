@@ -1,4 +1,4 @@
-# Optiq.Maui.DatePicker
+# Optiq.Maui.Tools
 
 ## How to use
 

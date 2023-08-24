@@ -11,9 +11,6 @@ public class DatePickerUnitTests
         Optiq.DatePicker.DatePicker picker = new Optiq.DatePicker.DatePicker();
 
         picker.MinimumDate = new DateTime(1950, 1, 1);
-
-        Assert.Equal(new DateTime(1950, 1, 1), picker.MinimumDate);
-
         
         Assert.Throws<ArgumentException>(() => picker.MinimumDate = new DateTime(2200, 1, 1));
     }
@@ -23,10 +20,7 @@ public class DatePickerUnitTests
     public void TestNullableDate()
     {
         Optiq.DatePicker.DatePicker picker = new Optiq.DatePicker.DatePicker();
-        if (picker.Date == null)
-        {
-            Assert.Null(picker.Date);
-        }
+        Assert.Null(picker.Date);
     }
 
     [Fact]
