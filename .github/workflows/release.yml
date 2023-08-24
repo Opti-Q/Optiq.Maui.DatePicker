@@ -1,0 +1,42 @@
+name: Release
+
+on:
+  # pull_request:
+  #   branches: [ develop ]
+  push:
+    branches:
+      - main
+      - 'feature/*'
+
+jobs:
+  Build:
+
+    env:
+      SOLUTION: 'Optiq.Maui.DatePicker'
+      BUILD_CONFIG: 'Release'
+
+    runs-on: [windows-latest]
+
+    steps:
+    - uses: actions/checkout@v2
+
+    - name: Setup MSBuild
+      uses: microsoft/setup-msbuild@v1
+
+    - name: Setup NuGet
+      uses: NuGet/setup-nuget@v1.0.5
+
+    - name: Restore NuGet packages
+      run: nuget restore $SOLUTION
+
+    - name: Build the Solution
+      run: msbuild $SOLUTION /p:Configuration=$env:BUILD_CONFIG /p:Version=1.0.0 #$env:BUILD_VERSION
+
+    - name: Archive
+      uses: actions/upload-artifact@v2
+      with:
+        name: Optiq.DatePicker.nuget
+        path: ./**/*.nupkg
+
+    # - name: Publish
+    #   run: nuget push ./src/Optiq.DatePicker/bin/Release/*.nupkg -Source 'https://api.nuget.org/v3/index.json' -ApiKey ${{secrets.NUGET_API_KEY}}
