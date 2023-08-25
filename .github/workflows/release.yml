@@ -19,9 +19,11 @@ jobs:
 
     steps:
     - uses: actions/checkout@v2
+      with:
+        fetch-depth: 0
 
     - name: Setup MSBuild
-      uses: microsoft/setup-msbuild@v1
+      uses: microsoft/setup-msbuild@v1  
 
     - name: Setup NuGet
       uses: NuGet/setup-nuget@v1.0.5
@@ -29,14 +31,28 @@ jobs:
     - name: Restore NuGet packages
       run: nuget restore $SOLUTION
 
-    - name: Build the Solution
-      run: msbuild $SOLUTION /p:Configuration=$env:BUILD_CONFIG /p:Version=1.0.0 #$env:BUILD_VERSION
+    - name: Install GitVersion
+      run: dotnet tool install --global GitVersion.Tool    
+
+    - name: Determine Version
+      uses: gittools/actions/gitversion/execute@v0
+      with:
+        useConfigFile: true
+
+    - name: Pack
+      run: dotnet pack --configuration Release /p:Version=${{ env.semVer }} 
 
     - name: Archive
       uses: actions/upload-artifact@v2
       with:
         name: Optiq.DatePicker.nuget
         path: ./**/*.nupkg
+
+    - name: Git tag Version
+      run: git tag  
+
+    - name: Push Tags
+      run: git push --tags
 
     # - name: Publish
     #   run: nuget push ./src/Optiq.DatePicker/bin/Release/*.nupkg -Source 'https://api.nuget.org/v3/index.json' -ApiKey ${{secrets.NUGET_API_KEY}}
